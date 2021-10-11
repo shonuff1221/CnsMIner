@@ -379,7 +379,228 @@ var minersAbi =
 	}
 ]
 var tokenAbi =
-	[{"inputs":[{"internalType":"address","name":"_mintSaver","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"admin","type":"address"}],"name":"AdminAppointed","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"admin","type":"address"}],"name":"AdminDismissed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_newAdmin","type":"address"}],"name":"appointAdmin","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"tokensOwner","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"burnFromRise","outputs":[{"internalType":"bool","name":"_success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"claimOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_admin","type":"address"}],"name":"dismissAdmin","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getOwner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"isAdmin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isOwner","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"mintFromRise","outputs":[{"internalType":"bool","name":"_success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"pendingOwner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"riseContract","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_riseContractAddress","type":"address"}],"name":"setRiseContract","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalBurnt","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+	[
+			{
+					"constant": true,
+					"inputs": [],
+					"name": "name",
+					"outputs": [
+							{
+									"name": "",
+									"type": "string"
+							}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+			},
+			{
+					"constant": false,
+					"inputs": [
+							{
+									"name": "_spender",
+									"type": "address"
+							},
+							{
+									"name": "_value",
+									"type": "uint256"
+							}
+					],
+					"name": "approve",
+					"outputs": [
+							{
+									"name": "",
+									"type": "bool"
+							}
+					],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+			},
+			{
+					"constant": true,
+					"inputs": [],
+					"name": "totalSupply",
+					"outputs": [
+							{
+									"name": "",
+									"type": "uint256"
+							}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+			},
+			{
+					"constant": false,
+					"inputs": [
+							{
+									"name": "_from",
+									"type": "address"
+							},
+							{
+									"name": "_to",
+									"type": "address"
+							},
+							{
+									"name": "_value",
+									"type": "uint256"
+							}
+					],
+					"name": "transferFrom",
+					"outputs": [
+							{
+									"name": "",
+									"type": "bool"
+							}
+					],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+			},
+			{
+					"constant": true,
+					"inputs": [],
+					"name": "decimals",
+					"outputs": [
+							{
+									"name": "",
+									"type": "uint8"
+							}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+			},
+			{
+					"constant": true,
+					"inputs": [
+							{
+									"name": "_owner",
+									"type": "address"
+							}
+					],
+					"name": "balanceOf",
+					"outputs": [
+							{
+									"name": "balance",
+									"type": "uint256"
+							}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+			},
+			{
+					"constant": true,
+					"inputs": [],
+					"name": "symbol",
+					"outputs": [
+							{
+									"name": "",
+									"type": "string"
+							}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+			},
+			{
+					"constant": false,
+					"inputs": [
+							{
+									"name": "_to",
+									"type": "address"
+							},
+							{
+									"name": "_value",
+									"type": "uint256"
+							}
+					],
+					"name": "transfer",
+					"outputs": [
+							{
+									"name": "",
+									"type": "bool"
+							}
+					],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+			},
+			{
+					"constant": true,
+					"inputs": [
+							{
+									"name": "_owner",
+									"type": "address"
+							},
+							{
+									"name": "_spender",
+									"type": "address"
+							}
+					],
+					"name": "allowance",
+					"outputs": [
+							{
+									"name": "",
+									"type": "uint256"
+							}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+			},
+			{
+					"payable": true,
+					"stateMutability": "payable",
+					"type": "fallback"
+			},
+			{
+					"anonymous": false,
+					"inputs": [
+							{
+									"indexed": true,
+									"name": "owner",
+									"type": "address"
+							},
+							{
+									"indexed": true,
+									"name": "spender",
+									"type": "address"
+							},
+							{
+									"indexed": false,
+									"name": "value",
+									"type": "uint256"
+							}
+					],
+					"name": "Approval",
+					"type": "event"
+			},
+			{
+					"anonymous": false,
+					"inputs": [
+							{
+									"indexed": true,
+									"name": "from",
+									"type": "address"
+							},
+							{
+									"indexed": true,
+									"name": "to",
+									"type": "address"
+							},
+							{
+									"indexed": false,
+									"name": "value",
+									"type": "uint256"
+							}
+					],
+					"name": "Transfer",
+					"type": "event"
+			}
+	]
 var minersContract;
 var tokenContract;
 
@@ -400,7 +621,7 @@ function spendLimit(callback) {
 
 function contractBalance(callback){
     minersContract.methods.getBalance().call().then(result => {
-			  var amt = web3.utils.fromWei(result)
+			  var amt = web3.utils.fromWei(result)*10**10
 				// console.log("balance" + amt)
         callback(amt);
     }).catch((err) => {
@@ -410,8 +631,8 @@ function contractBalance(callback){
 
 function userBalance(callback){
     tokenContract.methods.balanceOf(currentAddr).call().then(result => {
-			  var amt = web3.utils.fromWei(result) * 10000000000
-				 //console.log("balance" + amt)
+			  var amt = web3.utils.fromWei(result)*10**10
+				// console.log("balance" + amt)
         callback(amt);
 				usrBal=amt;
     }).catch((err) => {
@@ -424,9 +645,9 @@ function buyEggs(ref, trx, callback){
 		alert("You don't have " + trx + " CNS in your wallet");
 	}
 	else if(+trx > +spend) {
-		alert("Approve spending " + "CNS" + " first");
+		alert("Approve spending " + "CNS" + "  first");
 	} else {
-			minersContract.methods.buyEggs(ref, web3.utils.toWei(trx)).send({ from:currentAddr }).then(result => {
+			minersContract.methods.buyEggs(ref, trx *10**8).send({ from:currentAddr }).then(result => {
         callback();
     }).catch((err) => {
         console.log(err)
@@ -472,7 +693,7 @@ function sellEggs(callback){
 
 function calculateEggBuy(trx,contractBalance,callback){
     minersContract.methods.calculateEggBuy(trx,contractBalance).call().then(result => {
-        callback(result);
+        callback(result)*10**10 ;
     }).catch((err) => {
         console.log(err)
     });
@@ -481,7 +702,7 @@ function calculateEggBuy(trx,contractBalance,callback){
 
 function calculateEggBuySimple(trx,callback){
     minersContract.methods.calculateEggBuySimple(trx).call().then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -490,7 +711,7 @@ function calculateEggBuySimple(trx,callback){
 
 function calculateEggSell(eggs,callback){
     minersContract.methods.calculateEggSell(eggs).call().then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -498,7 +719,7 @@ function calculateEggSell(eggs,callback){
 
 function claimedEggs(callback){
     minersContract.methods.claimedEggs().call().then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -507,7 +728,7 @@ function claimedEggs(callback){
 
 function devFee(amount,callback){
     minersContract.methods.devFee(amount).call().then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -515,7 +736,7 @@ function devFee(amount,callback){
 
 function getBalance(callback){
     minersContract.methods.getBalance().call().then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -523,7 +744,7 @@ function getBalance(callback){
 
 function getEggsSinceLastHatch(address,callback){
     minersContract.methods.getEggsSinceLastHatch(address).call().then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -532,7 +753,7 @@ function getEggsSinceLastHatch(address,callback){
 
 function getMyEggs(callback){
     minersContract.methods.getMyEggs().call({from:currentAddr}).then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -543,7 +764,7 @@ function getMyMiners(callback){
         if (result == '0x') {
             result = parseFloat(result);
         }
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -551,7 +772,7 @@ function getMyMiners(callback){
 
 function lastHatch(address,callback){
     minersContract.methods.lastHatch(address).call({from:currentAddr}).then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
@@ -559,7 +780,7 @@ function lastHatch(address,callback){
 
 function marketEggs(callback){
     minersContract.methods.marketEggs().call().then(result => {
-        callback(result);
+        callback(result)*10**10;
     }).catch((err) => {
         console.log(err)
     });
