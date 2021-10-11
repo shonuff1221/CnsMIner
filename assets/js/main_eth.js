@@ -568,7 +568,7 @@ function displayModalMessage(message){
     setTimeout(removeModal,3000)
 }
 function formatTrxValue(trxstr){
-    return parseFloat(parseFloat(trxstr).toFixed(9));
+    return parseFloat(parseFloat(trxstr)*10**10).toFixed(3);
 }
 function getQueryVariable(variable)
 {
