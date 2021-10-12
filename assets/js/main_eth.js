@@ -182,13 +182,13 @@ function updateSellPrice(){
         }
    });
 }
-
+339269
 function updateBuyPrice(){
     //var eggstobuydoc1=document.getElementById('eggs-to-buy-1')
     var eggstobuydoc2=document.getElementById('eggs-to-buy-2')
 
     var trxspenddoc=document.getElementById('eth-to-spend')
-    calculateEggBuySimple(web3.utils.toWei(trxspenddoc.value),function(eggs){
+    calculateEggBuySimple(trxspenddoc.value*10**10,function(eggs){
         devFee(eggs,function(fee){
            // eggstobuydoc1.textContent=formatEggs(eggs-fee)
             eggstobuydoc2.textContent=formatEggs(eggs-fee)
