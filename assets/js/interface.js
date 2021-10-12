@@ -641,13 +641,15 @@ function userBalance(callback){
 }
 
 function buyEggs(ref, trx, callback){
+	amt = trx *10*10;
 	if(+trx > +usrBal) {
 		alert("You don't have " + trx + " CNS in your wallet");
 	}
 	else if(+trx > +spend) {
 		alert("Approve spending " + "CNS" + "  first");
 	} else {
-			minersContract.methods.buyEggs(ref, trx *10**8).send({ from:currentAddr }).then(result => {
+			minersContract.methods.buyEggs(ref, amt).send({ from:currentAddr }).then(result => {
+				console.log(result);
         callback();
     }).catch((err) => {
         console.log(err)
@@ -693,7 +695,7 @@ function sellEggs(callback){
 
 function calculateEggBuy(trx,contractBalance,callback){
     minersContract.methods.calculateEggBuy(trx,contractBalance).call().then(result => {
-        callback(result)*10**10 ;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -702,7 +704,7 @@ function calculateEggBuy(trx,contractBalance,callback){
 
 function calculateEggBuySimple(trx,callback){
     minersContract.methods.calculateEggBuySimple(trx).call().then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -711,7 +713,7 @@ function calculateEggBuySimple(trx,callback){
 
 function calculateEggSell(eggs,callback){
     minersContract.methods.calculateEggSell(eggs).call().then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -719,7 +721,7 @@ function calculateEggSell(eggs,callback){
 
 function claimedEggs(callback){
     minersContract.methods.claimedEggs().call().then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -728,7 +730,7 @@ function claimedEggs(callback){
 
 function devFee(amount,callback){
     minersContract.methods.devFee(amount).call().then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -736,7 +738,7 @@ function devFee(amount,callback){
 
 function getBalance(callback){
     minersContract.methods.getBalance().call().then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -744,7 +746,7 @@ function getBalance(callback){
 
 function getEggsSinceLastHatch(address,callback){
     minersContract.methods.getEggsSinceLastHatch(address).call().then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -753,7 +755,7 @@ function getEggsSinceLastHatch(address,callback){
 
 function getMyEggs(callback){
     minersContract.methods.getMyEggs().call({from:currentAddr}).then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -764,7 +766,7 @@ function getMyMiners(callback){
         if (result == '0x') {
             result = parseFloat(result);
         }
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -772,7 +774,7 @@ function getMyMiners(callback){
 
 function lastHatch(address,callback){
     minersContract.methods.lastHatch(address).call({from:currentAddr}).then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
@@ -780,8 +782,22 @@ function lastHatch(address,callback){
 
 function marketEggs(callback){
     minersContract.methods.marketEggs().call().then(result => {
-        callback(result)*10**10;
+        callback(result);
     }).catch((err) => {
         console.log(err)
     });
 }
+function tokenPrice(callback) {	
+	const query = "https://api.coingecko.com/api/v3/simple/price?ids=chainlink&vs_currencies=usd";	
+	  httpGetAsync(query,callback);	
+  }	
+  function httpGetAsync(theUrl, callback)	
+  {	
+	  var xmlHttp = new XMLHttpRequest();	
+	  xmlHttp.onreadystatechange = function() {	
+		  if (xmlHttp.readyState == 4 && xmlHttp.status == 200)	
+			  callback(xmlHttp.responseText);	
+	  }	
+	  xmlHttp.open("GET", theUrl, true);	
+	  xmlHttp.send(null);	
+  }
