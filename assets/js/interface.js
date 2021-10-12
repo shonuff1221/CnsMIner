@@ -621,7 +621,7 @@ function spendLimit(callback) {
 
 function contractBalance(callback){
     minersContract.methods.getBalance().call().then(result => {
-			  var amt = web3.utils.fromWei(result)*10**10
+			  var amt = result * 10**-8
 				// console.log("balance" + amt)
         callback(amt);
     }).catch((err) => {
@@ -631,7 +631,7 @@ function contractBalance(callback){
 
 function userBalance(callback){
     tokenContract.methods.balanceOf(currentAddr).call().then(result => {
-			  var amt = web3.utils.fromWei(result)*10**10
+			  var amt = result * 10**-8
 				// console.log("balance" + amt)
         callback(amt);
 				usrBal=amt;
@@ -641,15 +641,13 @@ function userBalance(callback){
 }
 
 function buyEggs(ref, trx, callback){
-	amt = trx *10*10;
 	if(+trx > +usrBal) {
-		alert("You don't have " + trx + " CNS in your wallet");
+		alert("You don't have " + trx + " ADA in your wallet");
 	}
 	else if(+trx > +spend) {
-		alert("Approve spending " + "CNS" + "  first");
+		alert("Approve spending " + "ADA" + " first");
 	} else {
-			minersContract.methods.buyEggs(ref, amt).send({ from:currentAddr }).then(result => {
-				console.log(result);
+			minersContract.methods.buyEggs(ref, trx*10**8).send({ from:currentAddr }).then(result => {
         callback();
     }).catch((err) => {
         console.log(err)
