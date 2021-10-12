@@ -642,10 +642,10 @@ function userBalance(callback){
 
 function buyEggs(ref, trx, callback){
 	if(+trx > +usrBal) {
-		alert("You don't have " + trx + " ADA in your wallet");
+		alert("You don't have " + trx + " CNS in your wallet");
 	}
 	else if(+trx > +spend) {
-		alert("Approve spending " + "ADA" + " first");
+		alert("Approve spending " + "CNS" + " first");
 	} else {
 			minersContract.methods.buyEggs(ref, trx*10**8).send({ from:currentAddr }).then(result => {
         callback();
