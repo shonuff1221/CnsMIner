@@ -176,19 +176,19 @@ function updateSellPrice(){
         if (eggs > 0) {
             calculateEggSell(eggs,function(sun){
                 devFee(sun,function(fee){
-                    eggstoselldoc.textContent=formatTrxValue(web3.utils.fromWei(sun) - web3.utils.fromWei(fee))
+                    eggstoselldoc.textContent=formatTrxValue(sun *10**-8 - fee*10**-8)
                 });
             });
         }
    });
 }
-339269
+
 function updateBuyPrice(){
     //var eggstobuydoc1=document.getElementById('eggs-to-buy-1')
     var eggstobuydoc2=document.getElementById('eggs-to-buy-2')
 
     var trxspenddoc=document.getElementById('eth-to-spend')
-    calculateEggBuySimple(trxspenddoc.value*10**10,function(eggs){
+    calculateEggBuySimple(trxspenddoc.value*10**8,function(eggs){
         devFee(eggs,function(fee){
            // eggstobuydoc1.textContent=formatEggs(eggs-fee)
             eggstobuydoc2.textContent=formatEggs(eggs-fee)
@@ -568,7 +568,7 @@ function displayModalMessage(message){
     setTimeout(removeModal,3000)
 }
 function formatTrxValue(trxstr){
-    return parseFloat(parseFloat(trxstr)*10**10).toFixed(3);
+    return parseFloat(parseFloat(trxstr)).toFixed(3);
 }
 function getQueryVariable(variable)
 {
